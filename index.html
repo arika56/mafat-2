@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לוח מודעות יחידתי</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="military-header">
+        <div class="logo-container">
+            <img src="logo.png" alt="לוגו" class="unit-logo">
+            <span class="logo-text">מערכת מודעות | יחידה</span>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="חיפוש מודעה..." onkeyup="searchAds()">
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">מה חדש?</a>
+            <a href="#" onclick="filterAds('files')">קבצים</a>
+            <a href="admin.html">⚙️ ניהול</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="main-title" style="text-align:center; padding-top:40px;">לוח מודעות אטיאס גיי<span>דיגיטלי</span></h1>
+        <div id="board" class="board-container"></div>
+    </main>
+
+    <!-- ✅ Firebase נטען פעם אחת בלבד, עם כתובות מלאות -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+    <script>window.onload = displayAds;</script>
+</body>
+</html>

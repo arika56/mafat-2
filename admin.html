@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>ניהול מערכת</title>
+</head>
+<body>
+    <header class="military-header">
+        <div class="logo-container">
+            <img src="logo.png" alt="לוגו" class="unit-logo">
+            <span class="logo-text">ניהול תוכן</span>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">← חזרה ללוח</a>
+        </nav>
+    </header>
+
+    <div class="admin-wrapper">
+        <div id="login-section" class="admin-card" style="max-width:400px; margin: 50px auto;">
+            <h2 style="text-align:center">כניסת מנהל</h2>
+            <input type="password" id="pass" placeholder="סיסמה">
+            <button onclick="checkPass()">כניסה</button>
+        </div>
+
+        <div id="admin-panel" class="admin-card" style="display:none;">
+            <h2 style="color:var(--primary)">פרסום תוכן חדש</h2>
+            <input type="text" id="title" placeholder="כותרת המודעה">
+            <textarea id="summary" placeholder="תקציר קצר ללוח..."></textarea>
+            <textarea id="guide" rows="8" placeholder="מדריך מלא ומפורט..."></textarea>
+
+            <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                <label style="color:var(--urgent); cursor:pointer;"><input type="checkbox" id="isUrgent"> מודעה דחופה</label>
+                <input type="text" id="phone" placeholder="טלפון אחראי (למשל 0501234567)" style="margin:0; flex:1;">
+            </div>
+
+            <div class="upload-grid">
+                <div class="upload-group">
+                    <label>🖼️ תמונה ראשית</label>
+                    <input type="file" id="imageInput" accept="image/*">
+                </div>
+                <div class="upload-group">
+                    <label>📄 טפסים (PDF/Word)</label>
+                    <input type="file" id="fileInput" accept=".pdf,.doc,.docx">
+                </div>
+            </div>
+
+            <button onclick="saveAd()">🚀 פרסם עכשיו</button>
+
+            <h3 style="margin-top:40px; border-top:1px solid var(--glass-border); padding-top:20px;">ניהול מודעות קיימות</h3>
+            <div id="admin-ads-list"></div>
+        </div>
+    </div>
+
+    <!-- עכשיו זה נטען לך פעם אחת במקום 1000 פעמים יא ליצן בכלל-->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+    <script>if (document.getElementById('admin-panel')) setInterval(loadAdminAds, 1000);</script>
+</body>
+</html>
